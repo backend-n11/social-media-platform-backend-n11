@@ -28,16 +28,14 @@ const pool = new Pool({
 })
 
 
-const query = pool.query
 export const setUp = async () => {
-    await query(setUpPostsQuery())
-    await query(setUpUsersQuery())
- 
-    const setUpUsersQueryString = await setUpUsersQuery()
-    console.log(setUpUsersQueryString)
-
+    const setUpUsersQueryString = setUpUsersQuery()
+    const setUpPostsQueryString = setUpPostsQuery()
+    
     const result = await pool.query(setUpUsersQueryString)
-    console.log(result)
+    const postresult = await pool.query(setUpPostsQueryString)
+
+    console.log(result, postresult)
     return "ok"
 }
 
