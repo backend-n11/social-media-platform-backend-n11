@@ -6,7 +6,16 @@ import {
 import {
     setUpUsersQuery
 } from "./setUp.users.js"
+
 dotenv.config()
+
+
+import {
+    selectAllUsers,
+    selectOneUser,
+    updateUser,
+    deleteUser
+} from "./users.querys.js"
 
 const {
     Pool
@@ -36,4 +45,13 @@ export const setUp = async () => {
     const result = await pool.query(setUpUsersQueryString)
     console.log(result)
     return "ok"
+}
+
+export const usersUpdate = async (username, email, password, gender) => {
+    let result = await pool.query(updateUser, [username, email, password, gender])
+}
+
+export const getUserByid = async (id) => {
+    let result = await pool.query(selectOneUser, id)
+    return result.rows
 }
