@@ -1,14 +1,5 @@
 export const setUpUsersQuery = () => {
     const query = `
-<<<<<<< Updated upstream
-
-
-
-
-
-`
-
-=======
         CREATE TABLE IF NOT EXISTS users(
             id SERIAL PRIMARY KEY,
             username VARCHAR(64),
@@ -19,5 +10,4 @@ export const setUpUsersQuery = () => {
         )
     `
     return query
->>>>>>> Stashed changes
 }

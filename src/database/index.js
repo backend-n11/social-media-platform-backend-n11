@@ -28,7 +28,8 @@ const pool = new Pool({
     database: POSTGRES_DATABASE
 })
 
-// export setUp() => {
-//     // setUpPostsQuery
-//     // setUpUsersQuery
-// }
+const query = pool.query
+export const setUp = async () => {
+    await query(setUpPostsQuery())
+    await query(setUpUsersQuery())
+}
