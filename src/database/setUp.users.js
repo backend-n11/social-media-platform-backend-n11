@@ -8,7 +8,6 @@ export const setUpUsersQuery = () => {
         password VARCHAR(100),
         gender VARCHAR(64)
     )
-
 `
     return query
 }
