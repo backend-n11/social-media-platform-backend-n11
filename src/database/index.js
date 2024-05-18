@@ -32,6 +32,7 @@ export const setUp = async () => {
     // setUpPostsQuery
     const setUpUsersQueryString = await setUpUsersQuery()
     console.log(setUpUsersQueryString)
+
     const result = await pool.query(setUpUsersQueryString)
     console.log(result)
     return "ok"
