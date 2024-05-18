@@ -19,7 +19,6 @@ const {
     POSTGRES_PORT,
     POSTGRES_DATABASE
 } = process.env
-
 const pool = new Pool({
     user: POSTGRES_USER,
     password: POSTGRES_PASSWORD,
@@ -28,8 +27,17 @@ const pool = new Pool({
     database: POSTGRES_DATABASE
 })
 
+
 const query = pool.query
 export const setUp = async () => {
     await query(setUpPostsQuery())
     await query(setUpUsersQuery())
+ 
+    const setUpUsersQueryString = await setUpUsersQuery()
+    console.log(setUpUsersQueryString)
+
+    const result = await pool.query(setUpUsersQueryString)
+    console.log(result)
+    return "ok"
 }
+

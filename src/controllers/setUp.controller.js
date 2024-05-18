@@ -1,8 +1,10 @@
+
 import { setUp } from "../database/index.js"
 
-setUp()
+await setUp()
 
-export const setUpController = (req, res) => {
+export const setUpController = async (req, res) => {
     console.log(`METHOD :${req.method} \n URL : ${req.url}`)
+    await setUp()
     res.send("OK")
 }
