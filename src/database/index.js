@@ -27,8 +27,11 @@ const pool = new Pool({
     port: POSTGRES_PORT,
     database: POSTGRES_DATABASE
 })
+const query = pool.query
 
-export const setUp=() => {
-    setUpPostsQuery
-     setUpUsersQuery
+export const setUp = () => {
+    // setUpPostsQuery
+    const setUpUsersQueryString = setUpUsersQuery()
+    query(setUpUsersQueryString)
+    return "ok"
 }
